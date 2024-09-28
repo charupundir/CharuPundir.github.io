@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+      
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Poppins', sans-serif;
+      }
+
+      body {
+          background: #081b29;
+          color: blanchedalmond;
+          scroll-behavior: smooth;
+      }
+
+      .header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          padding: 20px 10%;
+          background: transparent;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          z-index: 100;
+          transition: background 0.3s ease-in-out;
+      }
+
+      .header.scrolled {
+          background: rgba(8, 27, 41, 0.9);
+      }
+
+      .logo {
+          font-size: 25px;
+          color: bisque;
+          text-decoration: none;
+          font-weight: 600;
+      }
+
+      .navbar a {
+          font-size: 18px;
+          color: bisque;
+          text-decoration: none;
+          font-weight: 500;
+          margin-left: 35px;
+          transition: color 0.3s;
+      }
+
+      .navbar a:hover,
+      .navbar a.active {
+          color: lightskyblue;
+      }
+
+      .home {
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          padding: 0 10%;
+          margin-top: 60px;
+          position: relative;
+      }
+
+      .home-content {
+          background: transparent;
+          max-width: 600px;
+      }
+
+      .home-content h1 {
+          font-size: 56px;
+          font-weight: 700;
+          line-height: 1.2;
+      }
+
+      .home-content h3 {
+          font-size: 32px;
+          font-weight: 700;
+          color: #00abf0;
+      }
+
+      .home-content p {
+          font-size: 16px;
+          margin: 20px 0 40px;
+      }
+      .download-cv-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  margin-top: 20px;
+}
+
+.download-cv-button:hover {
+  background: linear-gradient(135deg, #218838, #28a745);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+}
+
+
+      .home-content a {
+          display: inline-block;
+          padding: 15px 30px;
+          background: linear-gradient(135deg, #00c6ff, #0072ff);
+          color: #fff;
+          border-radius: 50px;
+          text-decoration: none;
+          font-size: 18px;
+          transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      }
+
+      .home-content a:hover {
+          background: linear-gradient(135deg, #0072ff, #00c6ff);
+          transform: scale(1.1);
+          box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+      }
+
+      .rightsection img {
+  margin: 1.5px 0;
+  width: 85%; 
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(175, 132, 132, 0.5);
+  transition: 0.3s ease box-shadow;
+}
+
+.rightsection img:hover {
+  box-shadow: 0 15px 30px rgba(175, 132, 132, 0.7);
+}
+
+
+      #about {
+          background-color: transparent;
+          padding: 50px;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+      }
+
+      #about::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(50, 27, 134, 0.1), rgba(255, 255, 255, 0));
+          animation: rotate 6s linear infinite;
+      }
+
+      @keyframes rotate {
+          from {
+              transform: rotate(0deg);
+          }
+
+          to {
+              transform: rotate(360deg);
+          }
+      }
+
+      #about h1 {
+          font-size: 56px;
+          font-weight: 700;
+          line-height: 1.2;
+          margin-bottom: 20px;
+          color: #fff;
+      }
+
+      #about p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 20px auto;
+  max-width: 800px; 
+  color: #f1f1f1; 
+  background: rgba(255, 255, 255, 0.1); 
+  border-radius: 10px; 
+  padding: 20px; 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);   transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#about p:hover {
+  background: rgba(255, 255, 255, 0.2); 
+  transform: scale(1.02);
+}
+
+      #skills {
+          padding: 50px;
+          text-align: center;
+          background: #081b29;
+      }
+
+      #skills h1 {
+          font-size: 56px;
+          font-weight: 700;
+          line-height: 1.2;
+          margin-bottom: 30px;
+          color: #fff;
+      }
+
+      .skills-list {
+          list-style-type: none;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+      }
+
+      .skills-list li {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  margin: 10px;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-size: 18px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.skills-list li::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s;
+  z-index: -1;
+}
+
+.skills-list li:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.skills-list li:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+}
+
+      
+
+#contact {
+  padding: 60px 20px;
+  background: transparent;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#contact::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(50, 27, 134, 0.1), rgba(255, 255, 255, 0));
+  animation: rotate 6s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.contact-toggle {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  z-index: 10;
+}
+
+.contact-toggle:hover {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+}
+
+.contact-info {
+  margin-top: 20px;
+  transition: max-height 0.5s ease;
+  display: none;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-list li {
+  margin: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+}
+
+.contact-item span {
+  font-size: 24px;
+  margin-right: 15px;
+  animation: bounce 1.5s infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-5px);
+  }
+}
+
+#contact-toggle.active + #contact-info {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+      #footer {
+          background-color: transparent;
+          text-align: center;
+          padding: 20px;
+          border-radius: 10px;
+      }
+      
+      #footer p {
+          color: #fff;
+          font-size: 1.3rem;
+          margin: 0;
+      }
+  
+    </style>
+
+    
+</head>
+<body>
+
+<header class="header">
+    <a href="#" class="logo">Charu Pundir.</a>
+
+    <nav class="navbar">
+        <a href="#top" class="active">Home</a>
+        <a href="#about">About me</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="home">
+    <div class="home-content">
+        <h1>Hi, I'm Charu Pundir</h1>
+        <h3>Frontend Developer</h3>
+        <p>As a Front-end Developer, I specialize in creating responsive, efficient, and visually engaging web applications. With a solid background in HTML, CSS, and expanding proficiency in JavaScript, I am committed to provide outstanding user experiences.</p>
+        <a href="./images/Charu_CV_.png" class="download-cv-button" download>Download CV</a>
+    </div>       
+    </div>       
+    <div class="rightsection">
+        <img src="./images/image_1.jpg" alt="Photo Loading...">
+    </div>
+</section>
+
+<section id="about">
+    <h1>About Me</h1>
+    <p> As a front-end enthusiast, I take pride in merging design with functionality. I'm always eager to learn and experiment with new technologies to keep pace with industry trends. My aim is to develop intuitive, user-focused interfaces that leave a lasting impression.</p>
+</section>
+
+<section id="skills">
+    <h1>Skills</h1>
+    <ul class="skills-list">
+        <li>HTML5 & CSS3</li>
+        <li>JavaScript (ES6+)</li>
+        <li>Responsive Web Design</li>
+        <li>Bootstrap & Tailwind CSS</li>
+        <li>Git & GitHub</li>
+        <li>React.js (beginner)</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <button id="contact-toggle" class="contact-toggle">Contact Me</button>
+    <div id="contact-info" class="contact-info" style="display: none;">
+        <ul class="contact-list">
+            <li>
+                <a href="tel:+1234567890" class="contact-item">
+                    <span class="contact-text">Phone</span>
+                </a>
+            </li>
+            <li>
+                <a href="mailto:charupundir1@gmail.com" class="contact-item">
+                    <span class="contact-text">Email</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/charu-pundir-b65004252" target="_blank" class="contact-item">
+                    <span class="contact-text">LinkedIn</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/charupundir" target="_blank" class="contact-item">
+                    <span class="contact-text">GitHub</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<section id="footer">
+    <p>&copy; 2024 Charu Pundir. All rights reserved.</p>
+</section>
+
+<script>
+    document.getElementById('contact-toggle').addEventListener('click', function() {
+    var contactInfo = document.getElementById('contact-info');
+    contactInfo.style.display = contactInfo.style.display === 'none' ? 'block' : 'none';
+    this.classList.toggle('active');
+    this.innerText = this.classList.contains('active') ? 'Contact Info' : 'Contact Me';
+});
+
+
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+</script>
+
+</body>
+</html>
